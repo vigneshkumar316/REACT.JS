@@ -1,0 +1,21 @@
+import React from 'react';
+function add()
+{
+    const fruits=[
+        {id:1,name:"apple"},
+        {id:2,name:"orange"},
+        {id:3,name:"mango"}
+    ]
+    return(
+        <div>
+            <ol>
+                {
+                    fruits.map((fruit,index)=>(
+                        <li key={index} id={index}>{fruit.name}</li>
+
+                ))}
+            </ol>
+        </div>
+    );
+}
+export default add;
