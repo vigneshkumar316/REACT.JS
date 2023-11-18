@@ -1,0 +1,93 @@
+import React, { useRef } from "react";
+const Sample = () => {
+  const usernameRef = useRef(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const username=usernameRef.current.value;
+    alert(username)
+  }
+  return(
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type='text' ref={usernameRef}/>
+        <button>Login</button>
+      </form>
+    </div>
+  );
+}
+export default Sample;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import React from 'react'
+import ParentComponentA from './HOC/ParentComponentA'
+import ParentComponentB from './HOC/ParentComponentB'
+
+const App = () => {
+  return (
+    <div>
+      <ParentComponentA />
+      <ParentComponentB />
+    </div>
+  )
+}
+
+export default App
+
+
+import React from 'react'
+import SharedListComponent from './SharedListComponent'
+const ParentComponentA = () => {
+    const dataB=[
+        {id:1 , name:"apple",price:100,imageurl: "//some url"},
+        { id:2,name: "orange",price:200, imageurl: "//some url"}
+        ]
+  return (
+    <div>
+        <h2>ParentComponentA</h2>
+        <SharedListComponent data ={dataB}/>
+    </div>
+  )
+}
+
+export default ParentComponentA
+
+
+import React from 'react'
+import SharedListComponent from './SharedListComponent'
+const ParentComponentA = () => {
+    const dataB=[
+        {id:1 , name:"apple",price:100,imageurl: "//some url"},
+        { id:2,name: "orange",price:200, imageurl: "//some url"}
+        ]
+  return (
+    <div>
+        <h2>ParentComponentA</h2>
+        <SharedListComponent data ={dataB}/>
+    </div>
+  )
+}
+
+export default ParentComponentA
+
+
+import React from 'react'
+
+const SharedListComponent = ({data}) => {
+  return (
+    <div>
+        <h1>Shared List Component</h1>
+        <ul>
+            {data.map((item) => (
+                <li key={item.id}>
+                    <img src={item.url} />
+                    <p>{item.id}</p>
+                    <p>{item.name}</p>
+                    <p>{item.price}</p>
+                </li>
+            ))}
+        </ul>
+    </div>
+  )
+}
+
+export default SharedListComponent
