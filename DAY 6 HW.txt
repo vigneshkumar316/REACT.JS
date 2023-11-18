@@ -1,0 +1,56 @@
+import React from "react";
+import Home from "./Home/Hom";
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import Hom from "./Home/Hom";
+import Regis from "./Register/Regis";
+import Logi from "./Login/Logi";
+function App() {
+  return (
+    <>
+      <Router>
+        <Routes>
+          <Route path="/Log" element={<Logi />}/>
+          <Route path="/Hom" element={<Hom />}/>
+          <Route path="/Reg" element={<Regis />}/>
+        </Routes>
+      </Router>
+    </>
+  );
+}
+export default App;
+
+
+
+import React from 'react';
+function Logi()
+{
+    return(
+    <center><h1>Login</h1></center>
+    )
+
+}
+export default Logi;
+
+
+import React from 'react';
+function Regis()
+{
+    return(
+    <center><h1>Register</h1></center>
+    )
+
+}
+export default Regis;
+
+
+
+import React from "react";
+function Hom()
+{
+    return(
+        <center><h1>Home</h1></center>
+    )
+}
+export default Hom;
+
+
