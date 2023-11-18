@@ -1,0 +1,36 @@
+import React, { useState } from 'react'
+const LifeCycle=()=>{
+    const[resourceType,setResourceType]=useState("posts");
+    return(
+        <div>
+            <button onClick={()=>setResourceType("posts")}>Posts</button>
+            <button onClick={()=>setResourceType("users")}>Users</button>
+            <button onClick={()=>setResourceType("comments")}>Comments</button>
+               <h2>{resourceType}</h2>
+        </div>
+    )
+}
+export default LifeCycle;
+
+
+import React, { useEffect,useState } from 'react'
+const LifeCycle=()=>{
+    const[resourceType,setResourceType]=useState("posts");
+    console.log("component mounted",resourceType);
+    useEffect(()=>{
+      console.log("updated",resourceType);
+      return()=>{
+        console.log("unmounted",resourceType)
+      }
+  },[resourceType])
+    return(
+        <div>
+            <button onClick={()=>setResourceType("posts")}>Posts</button>
+            <button onClick={()=>setResourceType("users")}>Users</button>
+            <button onClick={()=>setResourceType("comments")}>Comments</button>
+               <h2>{resourceType}</h2>
+        </div>
+    )
+}
+export default LifeCycle;
+
